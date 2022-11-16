@@ -2,5 +2,4 @@ cmake_minimum_required(VERSION 3.1...3.24)
 project(Lab04_Intro
         VERSION 1.0
         LANGUAGES CXX)
-add_executable(hw hw.cpp)
-#add_executable( intro src/binary_search.cpp src/linear_search.cpp src/intro.cpp)
+add_executable(binary_search binary_search.cpp)

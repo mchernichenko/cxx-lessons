@@ -13,8 +13,9 @@ int main()
 
   int n = sizeof(test_arr) / sizeof(test_arr[0]);
 
-  assert(binary_search(test_arr, 0, n - 1, -960) == 1);
-  assert(binary_search(test_arr, 2, n - 1, -960) == -1);
+  assert(binary_search(test_arr, 0, n - 1, -996) == 0);
+  assert(binary_search(test_arr, 2, n - 1, -944) == 2);
+  assert(binary_search(test_arr, 0, n - 1, 959) == n-1);
 
   return 0;
 }
@@ -24,19 +25,21 @@ int main()
     findValue - элемент, который ищем
     from - с какого индакса массива ищем
     to - по какой индакс массива ищем
+    Возвращает индекс наденного элемента. Если элемент не найден, то -1
 */
 int binary_search(int arr[], int from, int to, int findValue)
 {
-  while (to - from > 1) {
+  while (to - from >= 0)
+  {
     int mid = (to + from) / 2;
 
     if (arr[mid] == findValue)
       return mid;
 
-    if (arr[mid] < findValue)
-      from = mid + 1;
+    if (arr[mid] > findValue)
+      to = mid - 1;
     else
-      to = mid;
+      from = mid + 1;
   }
 
   return -1;
